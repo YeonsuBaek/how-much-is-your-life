@@ -10,7 +10,7 @@ const FinishedItems = ({ items }) => {
             <span>
               {item.start} - {item.end}
             </span>
-            <strong>{item.money}원</strong>
+            <strong>{item.money.toLocaleString()}원</strong>
           </li>
         );
       })}

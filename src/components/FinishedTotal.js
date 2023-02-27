@@ -24,7 +24,7 @@ const FinishedTotal = ({ finishedItems }) => {
       <span>
         총 {totalHours}시간 {totalMinutes > 0 && `${totalMinutes}분`}
       </span>
-      <strong>총 {totalMoney}원</strong>
+      <strong>총 {totalMoney.toLocaleString()}원</strong>
     </div>
   );
 };
