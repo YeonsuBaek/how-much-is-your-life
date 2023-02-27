@@ -1,25 +1,36 @@
 import React, { useState } from 'react';
 import FinishedForm from './components/FinishedForm';
 import FinishedList from './components/FinishedList';
+import FinishedTotal from './components/FinishedTotal';
 
 const App = () => {
   const [finishedItems, setFinishedItems] = useState([]);
 
-  const getMoney = (start, end) => {
+  const getTime = (start, end) => {
+    let hours = Number(end.slice(0, 2)) - Number(start.slice(0, 2));
+    let minutes = Number(end.slice(3)) - Number(start.slice(3));
+
+    if (minutes >= 60) {
+      hours += Number(minutes / 60);
+      minutes %= 60;
+    }
+
+    return { hours: hours, minutes: minutes };
+  };
+
+  const getMoney = (time) => {
     const hourlyRate = 9620;
 
-    const startMinutes =
-      Number(start.slice(0, 2)) * 60 + Number(start.slice(3, 2));
-    const endMinutes = Number(end.slice(0, 2)) * 60 + Number(end.slice(3, 2));
-    const time = endMinutes - startMinutes;
-
-    return time * Number(hourlyRate / 60);
+    return (
+      (time.hours + Math.round((time.minutes / 60) * 10) / 10) * hourlyRate
+    );
   };
 
   const putItem = (item) => {
     setFinishedItems((prevItems) => {
       const currentItem = item;
-      currentItem['money'] = getMoney(item.start, item.end);
+      currentItem['time'] = getTime(item.start, item.end);
+      currentItem['money'] = getMoney(currentItem.time);
       return [currentItem, ...prevItems];
     });
   };
@@ -28,6 +39,7 @@ const App = () => {
     <div>
       <FinishedForm getItem={putItem} />
       <FinishedList finishedItems={finishedItems} />
+      <FinishedTotal finishedItems={finishedItems} />
     </div>
   );
 };
