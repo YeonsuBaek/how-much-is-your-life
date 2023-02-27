@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FinishedForm from './components/FinishedForm';
 import FinishedList from './components/FinishedList';
 import FinishedTotal from './components/FinishedTotal';
+import Header from './components/Header';
 
 const App = () => {
   const [finishedItems, setFinishedItems] = useState([]);
@@ -37,9 +38,14 @@ const App = () => {
 
   return (
     <div>
+      <Header />
       <FinishedForm getItem={putItem} />
-      <FinishedList finishedItems={finishedItems} />
-      <FinishedTotal finishedItems={finishedItems} />
+      {finishedItems.length > 0 && (
+        <>
+          <FinishedList finishedItems={finishedItems} />
+          <FinishedTotal finishedItems={finishedItems} />
+        </>
+      )}
     </div>
   );
 };
