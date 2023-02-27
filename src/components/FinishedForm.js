@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const TodoForm = () => {
+const FinishedForm = ({ getItem }) => {
   const [startTime, setStartTime] = useState('00:00');
   const [endTime, setEndTime] = useState('00:00');
   const [finished, setFinished] = useState('');
@@ -19,6 +19,11 @@ const TodoForm = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    getItem({
+      start: startTime,
+      end: endTime,
+      finished: finished,
+    });
   };
 
   useEffect(() => {
@@ -63,4 +68,4 @@ const TodoForm = () => {
   );
 };
 
-export default TodoForm;
+export default FinishedForm;
