@@ -1,4 +1,5 @@
 import React from 'react';
+import FinishedItems from './FinishedItems';
 
 const dome = [
   {
@@ -20,17 +21,7 @@ const FinishedList = () => {
     <div>
       <h2>한 일 목록</h2>
       <ul>
-        {dome.map((item) => {
-          return (
-            <li key={item.start}>
-              <h3>{item.finished}</h3>
-              <span>
-                {item.start} - {item.end}
-              </span>
-              <strong>{item.money}원</strong>
-            </li>
-          );
-        })}
+        <FinishedItems items={dome} />
       </ul>
     </div>
   );
