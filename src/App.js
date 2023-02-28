@@ -37,8 +37,15 @@ const App = () => {
         item.endMinutes
       );
       currentItem['money'] = getMoney(currentItem.time);
+      currentItem['id'] =
+        item.startHours.toString() + item.startMinutes.toString();
       return [currentItem, ...prevItems];
     });
+  };
+
+  const handleDelete = (id) => {
+    const nextItems = finishedItems.filter((item) => item.id !== id);
+    setFinishedItems(nextItems);
   };
 
   return (
@@ -47,7 +54,7 @@ const App = () => {
       <FinishedForm getItem={putItem} />
       {finishedItems.length > 0 && (
         <>
-          <FinishedList finishedItems={finishedItems} />
+          <FinishedList finishedItems={finishedItems} onDelete={handleDelete} />
           <FinishedTotal finishedItems={finishedItems} />
         </>
       )}
