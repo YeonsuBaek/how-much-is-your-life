@@ -22,3 +22,33 @@
   color: #636366;
   text-align: center;
 }
+
+.startButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 32px auto;
+  padding: 13px 20px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #007aff;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  opacity: 1;
+  transition: background-color ease-in-out 200ms;
+}
+
+.startButton:is(:hover, :active) {
+  background-color: #0a84ff;
+}
+
+.startButtonIcon {
+  display: block;
+  width: 22px;
+  height: 22px;
+  margin-right: 10px;
+  background-image: url('../assets/icons/paperplane.png');
+  background-repeat: no-repeat;
+  background-size: 22px 22px;
+}
