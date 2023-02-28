@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FinishedForm from './components/FinishedForm';
 import FinishedList from './components/FinishedList';
 import FinishedTotal from './components/FinishedTotal';
@@ -6,6 +6,9 @@ import Header from './components/Header';
 
 const App = () => {
   const [finishedItems, setFinishedItems] = useState([]);
+  const [timetable, setTimetable] = useState(
+    new Array(24).fill(new Array(6).fill(false))
+  );
 
   const getTime = (startH, startM, endH, endM) => {
     let hours = Number(endH) - Number(startH);
@@ -28,6 +31,13 @@ const App = () => {
   };
 
   const putItem = (item) => {
+    fillTimetable(
+      item.startHours,
+      item.startMinutes,
+      item.endHours,
+      item.endMinutes
+    );
+
     setFinishedItems((prevItems) => {
       const currentItem = item;
       currentItem['time'] = getTime(
@@ -42,6 +52,27 @@ const App = () => {
       return [currentItem, ...prevItems];
     });
   };
+
+  const fillTimetable = (startH, startM, endH, endM) => {
+    setTimetable(
+      timetable.map((hour, hIndex) =>
+        hour.map((minute, mIndex) => {
+          if (hIndex >= startH && hIndex <= endH) {
+            const firstM = hIndex === startH ? startM : 0;
+            const lastM = hIndex === endH ? endM : 59;
+            return mIndex * 10 >= firstM && mIndex * 10 <= lastM
+              ? true
+              : minute;
+          } else return minute;
+          // 분 단위는 적용되지 않는 문제 해결
+        })
+      )
+    );
+  };
+
+  useEffect(() => {
+    console.log(timetable);
+  }, [timetable]);
 
   const handleDelete = (id) => {
     const nextItems = finishedItems.filter((item) => item.id !== id);
