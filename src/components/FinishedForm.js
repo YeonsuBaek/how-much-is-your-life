@@ -27,6 +27,7 @@ const FinishedForm = ({ getItem }) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+
     getItem({
       startHours: startHours,
       startMinutes: startMinutes,
@@ -34,6 +35,9 @@ const FinishedForm = ({ getItem }) => {
       endMinutes: endMinutes,
       finished: finished,
     });
+
+    setStartHours(endHours);
+    setStartMinutes(endMinutes);
   };
 
   useEffect(() => {
