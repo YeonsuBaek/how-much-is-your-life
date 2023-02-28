@@ -1,0 +1,67 @@
+.subtitle {
+  margin-bottom: 16px;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: 0.35px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.formItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 8px;
+}
+
+.formItem label {
+  width: 72px;
+}
+.timePicker {
+  padding: 3px 10px;
+  background-color: rgba(118, 118, 128, 0.12);
+  border-radius: 6px;
+}
+
+.timePicker input {
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: 0.35px;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.finished input {
+  height: 44px;
+  padding: 11px 57px 11px 0;
+  border: none;
+  border-bottom: 1px solid #c6c6c8;
+  outline: none;
+}
+
+.finished input::placeholder {
+  color: rgba(60, 60, 67, 0.6);
+}
+
+.finished input:hover {
+  background-color: transparent;
+}
+
+.saveButtonRapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.saveButton {
+  padding: 13px 20px;
+  font-weight: 600;
+  color: #007aff;
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}

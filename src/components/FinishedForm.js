@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './FinishedForm.css';
 
 const FinishedForm = ({ openForm, getItem }) => {
   const [opened, setOpened] = useState(false);
@@ -53,57 +54,72 @@ const FinishedForm = ({ openForm, getItem }) => {
   if (opened) {
     return (
       <div>
-        <h2>한 일을 입력해주세요.</h2>
+        <h2 className='subtitle'>한 일을 입력해주세요.</h2>
         <form onSubmit={handleFormSubmit}>
-          <label>시작 시간</label>
-          <input
-            type='number'
-            min='00'
-            max='23'
-            step='1'
-            value={startHours}
-            onChange={handleStartHoursChange}
-            required
-          />
-          <span>:</span>
-          <input
-            type='number'
-            min='00'
-            max='50'
-            step='10'
-            value={startMinutes}
-            onChange={handleStartMinutesChange}
-            required
-          />
-          <label>종료 시간</label>
-          <input
-            type='number'
-            min='00'
-            max='23'
-            step='1'
-            value={endHours}
-            onChange={handleEndHoursChange}
-            required
-          />
-          <span>:</span>
-          <input
-            type='number'
-            min='00'
-            max='50'
-            step='10'
-            value={endMinutes}
-            onChange={handleEndMinutesChange}
-            required
-          />
-          <label htmlFor='todo'>한 일</label>
-          <input
-            name='todo'
-            type='text'
-            value={finished}
-            onChange={handleFinishedChange}
-            required
-          />
-          <button type='submit'>저장</button>
+          <div className='formItem'>
+            <label>시작 시간</label>
+            <div className='timePicker'>
+              <input
+                type='number'
+                min='00'
+                max='23'
+                step='1'
+                value={startHours}
+                onChange={handleStartHoursChange}
+                required
+              />
+              <span>:</span>
+              <input
+                type='number'
+                min='00'
+                max='50'
+                step='10'
+                value={startMinutes}
+                onChange={handleStartMinutesChange}
+                required
+              />
+            </div>
+          </div>
+          <div className='formItem'>
+            <label>종료 시간</label>
+            <div className='timePicker'>
+              <input
+                type='number'
+                min='00'
+                max='23'
+                step='1'
+                value={endHours}
+                onChange={handleEndHoursChange}
+                required
+              />
+              <span>:</span>
+              <input
+                type='number'
+                min='00'
+                max='50'
+                step='10'
+                value={endMinutes}
+                onChange={handleEndMinutesChange}
+                required
+              />
+            </div>
+          </div>
+          <div className='formItem finished'>
+            <label htmlFor='todo'>한 일</label>
+            <input
+              name='todo'
+              type='text'
+              value={finished}
+              onChange={handleFinishedChange}
+              placeholder='생산적으로 한 일'
+              required
+            />
+          </div>
+          <div className='saveButtonRapper'>
+            <button className='saveButton' type='submit'>
+              저장
+            </button>
+          </div>
         </form>
       </div>
     );
