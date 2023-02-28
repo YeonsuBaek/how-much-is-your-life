@@ -5,10 +5,11 @@ const FinishedItems = ({ items }) => {
     <div>
       {items.map((item) => {
         return (
-          <li key={item.start}>
+          <li key={item.startHours}>
             <h3>{item.finished}</h3>
             <span>
-              {item.start} - {item.end}
+              {item.startHours}:{item.startMinutes} - {item.endHours}:
+              {item.endMinutes}
             </span>
             <strong>{item.money.toLocaleString()}원</strong>
           </li>

@@ -1,16 +1,24 @@
 import React, { useState, useEffect } from 'react';
 
 const FinishedForm = ({ getItem }) => {
-  const [startTime, setStartTime] = useState('00:00');
-  const [endTime, setEndTime] = useState('00:00');
+  const [startHours, setStartHours] = useState('00');
+  const [startMinutes, setStartMinutes] = useState('00');
+  const [endHours, setEndHours] = useState('00');
+  const [endMinutes, setEndMinutes] = useState('00');
   const [finished, setFinished] = useState('');
 
-  const handleStartTimeChange = (e) => {
-    setStartTime(e.target.value);
+  const handleStartHoursChange = (e) => {
+    setStartHours(e.target.value);
+  };
+  const handleStartMinutesChange = (e) => {
+    setStartMinutes(e.target.value);
   };
 
-  const handleEndTimeChange = (e) => {
-    setEndTime(e.target.value);
+  const handleEndHoursChange = (e) => {
+    setEndHours(e.target.value);
+  };
+  const handleEndMinutesChange = (e) => {
+    setEndMinutes(e.target.value);
   };
 
   const handleFinishedChange = (e) => {
@@ -20,38 +28,61 @@ const FinishedForm = ({ getItem }) => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     getItem({
-      start: startTime,
-      end: endTime,
+      startHours: startHours,
+      startMinutes: startMinutes,
+      endHours: endHours,
+      endMinutes: endMinutes,
       finished: finished,
     });
   };
 
   useEffect(() => {
-    setEndTime(startTime);
-  }, [startTime]);
+    setEndHours(startHours);
+    setEndMinutes(startMinutes);
+  }, [startHours, startMinutes]);
 
   return (
     <div>
       <h2>한 일을 입력해주세요.</h2>
       <form onSubmit={handleFormSubmit}>
-        <label htmlFor='start'>시작 시간</label>
+        <label>시작 시간</label>
         <input
-          name='start'
-          type='time'
-          min='00:00'
-          max='24:00'
-          value={startTime}
-          onChange={handleStartTimeChange}
+          type='number'
+          min='00'
+          max='23'
+          step='1'
+          value={startHours}
+          onChange={handleStartHoursChange}
           required
         />
-        <label htmlFor='end'>종료 시간</label>
+        <span>:</span>
         <input
-          name='end'
-          type='time'
-          min={startTime}
-          max='24:00'
-          value={endTime}
-          onChange={handleEndTimeChange}
+          type='number'
+          min='00'
+          max='50'
+          step='10'
+          value={startMinutes}
+          onChange={handleStartMinutesChange}
+          required
+        />
+        <label>종료 시간</label>
+        <input
+          type='number'
+          min={startHours}
+          max='23'
+          step='1'
+          value={endHours}
+          onChange={handleEndHoursChange}
+          required
+        />
+        <span>:</span>
+        <input
+          type='number'
+          min={startMinutes}
+          max='50'
+          step='10'
+          value={endMinutes}
+          onChange={handleEndMinutesChange}
           required
         />
         <label htmlFor='todo'>한 일</label>

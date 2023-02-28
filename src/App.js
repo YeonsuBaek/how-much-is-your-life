@@ -7,9 +7,9 @@ import Header from './components/Header';
 const App = () => {
   const [finishedItems, setFinishedItems] = useState([]);
 
-  const getTime = (start, end) => {
-    let hours = Number(end.slice(0, 2)) - Number(start.slice(0, 2));
-    let minutes = Number(end.slice(3)) - Number(start.slice(3));
+  const getTime = (startH, startM, endH, endM) => {
+    let hours = Number(endH) - Number(startH);
+    let minutes = Number(endM) - Number(startM);
 
     if (minutes >= 60) {
       hours += Number(minutes / 60);
@@ -30,7 +30,12 @@ const App = () => {
   const putItem = (item) => {
     setFinishedItems((prevItems) => {
       const currentItem = item;
-      currentItem['time'] = getTime(item.start, item.end);
+      currentItem['time'] = getTime(
+        item.startHours,
+        item.startMinutes,
+        item.endHours,
+        item.endMinutes
+      );
       currentItem['money'] = getMoney(currentItem.time);
       return [currentItem, ...prevItems];
     });
