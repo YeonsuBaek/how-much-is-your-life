@@ -49,7 +49,7 @@ const App = () => {
       currentItem['money'] = getMoney(currentItem.time);
       currentItem['id'] =
         item.startHours.toString() + item.startMinutes.toString();
-      return [currentItem, ...prevItems];
+      return [currentItem, ...prevItems].sort((a, b) => a.id - b.id);
     });
   };
 
