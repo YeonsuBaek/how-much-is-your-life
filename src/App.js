@@ -6,10 +6,15 @@ import Header from './components/Header';
 import './App.css';
 
 const App = () => {
+  const [openForm, setOpenForm] = useState(false);
   const [finishedItems, setFinishedItems] = useState([]);
   const [timetable, setTimetable] = useState(
     new Array(24).fill(new Array(6).fill(false))
   );
+
+  const handleOpen = (clicked) => {
+    setOpenForm(clicked);
+  };
 
   const getTime = (startH, startM, endH, endM) => {
     let hours = Number(endH) - Number(startH);
@@ -79,8 +84,8 @@ const App = () => {
 
   return (
     <div>
-      <Header />
-      <FinishedForm getItem={putItem} />
+      <Header onOpen={handleOpen} />
+      <FinishedForm openForm={openForm} getItem={putItem} />
       {finishedItems.length > 0 && (
         <>
           <FinishedList finishedItems={finishedItems} onDelete={handleDelete} />
