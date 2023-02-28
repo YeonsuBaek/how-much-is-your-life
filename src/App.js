@@ -58,13 +58,10 @@ const App = () => {
       timetable.map((hour, hIndex) =>
         hour.map((minute, mIndex) => {
           if (hIndex >= startH && hIndex <= endH) {
-            const firstM = hIndex === startH ? startM : 0;
-            const lastM = hIndex === endH ? endM : 59;
-            return mIndex * 10 >= firstM && mIndex * 10 <= lastM
-              ? true
-              : minute;
+            const firstM = hIndex === +startH ? startM : 0;
+            const lastM = hIndex === +endH ? endM : 59;
+            return mIndex * 10 >= firstM && mIndex * 10 < lastM ? true : minute;
           } else return minute;
-          // 분 단위는 적용되지 않는 문제 해결
         })
       )
     );
