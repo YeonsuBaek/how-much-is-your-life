@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 const FinishedForm = ({ getItem }) => {
   const [startHours, setStartHours] = useState('00');
   const [startMinutes, setStartMinutes] = useState('00');
-  const [endHours, setEndHours] = useState('00');
-  const [endMinutes, setEndMinutes] = useState('00');
+  const [endHours, setEndHours] = useState(startHours);
+  const [endMinutes, setEndMinutes] = useState(startMinutes);
   const [finished, setFinished] = useState('');
 
   const handleStartHoursChange = (e) => {
@@ -72,7 +72,7 @@ const FinishedForm = ({ getItem }) => {
         <label>종료 시간</label>
         <input
           type='number'
-          min={startHours}
+          min='00'
           max='23'
           step='1'
           value={endHours}
@@ -82,7 +82,7 @@ const FinishedForm = ({ getItem }) => {
         <span>:</span>
         <input
           type='number'
-          min={startMinutes}
+          min='00'
           max='50'
           step='10'
           value={endMinutes}
