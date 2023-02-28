@@ -3,6 +3,7 @@ import FinishedForm from './components/FinishedForm';
 import FinishedList from './components/FinishedList';
 import FinishedTotal from './components/FinishedTotal';
 import Header from './components/Header';
+import './App.css';
 
 const App = () => {
   const [finishedItems, setFinishedItems] = useState([]);
