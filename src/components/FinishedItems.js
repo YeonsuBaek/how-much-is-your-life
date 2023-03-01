@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './FinishedItems.css';
 import chevron from '../assets/icons/chevron.png';
+import trash from '../assets/icons/trash.png';
 
 const FinishedItems = ({ items, onDelete }) => {
+  const [push, setPush] = useState(false);
+  const handlePushClick = () => {
+    setPush(!push);
+  };
+
   return (
     <ul className='finishedList'>
       {items.map((item) => {
         return (
-          <li className='finishedItem' key={item.id}>
+          <li
+            className={
+              push ? 'pushedFinishedItem finishedItem' : 'finishedItem'
+            }
+            key={item.id}
+            onClick={handlePushClick}
+          >
             <div class='finishedDetailWrapper'>
               <h3>{item.finished}</h3>
               <strong>
@@ -21,7 +33,9 @@ const FinishedItems = ({ items, onDelete }) => {
               {item.startHours}:{item.startMinutes} - {item.endHours}:
               {item.endMinutes}
             </span>
-            {/* <button onClick={() => onDelete(item.id)}>삭제</button> */}
+            <button className='deleteButton' onClick={() => onDelete(item.id)}>
+              <img src={trash} alt='삭제' />
+            </button>
           </li>
         );
       })}
