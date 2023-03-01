@@ -3,43 +3,37 @@ import './FinishedItems.css';
 import chevron from '../assets/icons/chevron.png';
 import trash from '../assets/icons/trash.png';
 
-const FinishedItems = ({ items, onDelete }) => {
+const FinishedItems = ({ item, onDelete }) => {
   const [push, setPush] = useState(false);
   const handlePushClick = () => {
     setPush(!push);
   };
 
   return (
-    <ul className='finishedList'>
-      {items.map((item) => {
-        return (
-          <li
-            className={
-              push ? 'pushedFinishedItem finishedItem' : 'finishedItem'
-            }
-            key={item.id}
-            onClick={handlePushClick}
-          >
-            <div class='finishedDetailWrapper'>
-              <h3>{item.finished}</h3>
-              <strong>
-                {item.money.toLocaleString()}원
-                <i className='chevronIcon'>
-                  <img src={chevron} alt='수정 또는 삭제하러 가기' />
-                </i>
-              </strong>
-            </div>
-            <span>
-              {item.startHours}:{item.startMinutes} - {item.endHours}:
-              {item.endMinutes}
-            </span>
-            <button className='deleteButton' onClick={() => onDelete(item.id)}>
-              <img src={trash} alt='삭제' />
-            </button>
-          </li>
-        );
-      })}
-    </ul>
+    <li
+      className={push ? 'pushedFinishedItem finishedItem' : 'finishedItem'}
+      key={item.id}
+      onClick={handlePushClick}
+    >
+      <div className='finishedDetailWrapper'>
+        <h3>{item.finished}</h3>
+        <strong>
+          {item.money.toLocaleString()}원
+          <i className='chevronIcon'>
+            <img src={chevron} alt='수정 또는 삭제하러 가기' />
+          </i>
+        </strong>
+      </div>
+      <span>
+        {item.startHours}:{item.startMinutes} - {item.endHours}:
+        {item.endMinutes}
+      </span>
+      <div className='buttonWrapper'>
+        <button className='deleteButton' onClick={() => onDelete(item.id)}>
+          <img src={trash} alt='삭제' />
+        </button>
+      </div>
+    </li>
   );
 };
 
