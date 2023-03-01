@@ -7,6 +7,10 @@
   letter-spacing: -0.041px;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Pretendard Variable', Pretendard, -apple-system,
     BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI',
@@ -17,6 +21,7 @@ body {
   line-height: 22px;
   letter-spacing: -0.041px;
   color: #1c1c1e;
+  overflow-x: hidden;
 }
 
 .subTitle {
