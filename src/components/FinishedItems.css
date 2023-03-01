@@ -1,0 +1,47 @@
+.finishedList {
+  margin-bottom: 24px;
+}
+
+.finishedItem {
+  padding: 11px 32px 11px 0;
+  margin-right: -16px;
+  margin-left: 16px;
+  border-bottom: 0.03125rem solid #c6c6c8;
+  list-style-type: none;
+}
+
+.finishedDetailWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 44px;
+  margin-bottom: 4px;
+}
+
+.finishedItem strong {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 400;
+  color: #8e8e93;
+  white-space: nowrap;
+}
+
+.chevronIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 15px;
+  margin-left: 8px;
+}
+
+.chevronIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.finishedItem span {
+  color: #8e8e93;
+}
