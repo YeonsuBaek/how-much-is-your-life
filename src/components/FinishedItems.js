@@ -2,7 +2,7 @@ import React from 'react';
 
 const FinishedItems = ({ items, onDelete }) => {
   return (
-    <div>
+    <ul>
       {items.map((item) => {
         return (
           <li key={item.id}>
@@ -16,7 +16,7 @@ const FinishedItems = ({ items, onDelete }) => {
           </li>
         );
       })}
-    </div>
+    </ul>
   );
 };
 
