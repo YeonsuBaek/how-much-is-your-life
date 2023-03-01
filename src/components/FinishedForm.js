@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../App.css';
 import './FinishedForm.css';
 
 const FinishedForm = ({ openForm, getItem }) => {
@@ -54,7 +55,7 @@ const FinishedForm = ({ openForm, getItem }) => {
   if (opened) {
     return (
       <div>
-        <h2 className='subtitle'>한 일을 입력해주세요.</h2>
+        <h2 className='subTitle'>한 일을 입력해주세요.</h2>
         <form onSubmit={handleFormSubmit}>
           <div className='formItem'>
             <label>시작 시간</label>

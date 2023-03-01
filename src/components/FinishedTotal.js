@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css';
 
 const FinishedTotal = ({ finishedItems }) => {
   console.log(finishedItems);
@@ -20,7 +21,7 @@ const FinishedTotal = ({ finishedItems }) => {
 
   return (
     <div>
-      <h2>최종 환산</h2>
+      <h2 className='subTitle'>최종 환산</h2>
       <span>
         총 {totalHours}시간 {totalMinutes > 0 && `${totalMinutes}분`}
       </span>

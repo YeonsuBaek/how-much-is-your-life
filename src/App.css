@@ -18,3 +18,13 @@ body {
   letter-spacing: -0.041px;
   color: #1c1c1e;
 }
+
+.subTitle {
+  margin-bottom: 16px;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: 0.35px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
