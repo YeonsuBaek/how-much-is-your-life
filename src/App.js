@@ -4,6 +4,7 @@ import FinishedList from './components/FinishedList';
 import FinishedTotal from './components/FinishedTotal';
 import Header from './components/Header';
 import './App.css';
+import FinishedEdit from './components/FinishedEdit';
 
 const App = () => {
   const [openForm, setOpenForm] = useState(false);
@@ -11,6 +12,8 @@ const App = () => {
   const [timetable, setTimetable] = useState(
     new Array(24).fill(new Array(6).fill(false))
   );
+  const [openModal, setOpenModal] = useState(false);
+  const [itemToEdit, setItemToEdit] = useState();
 
   const handleOpen = (clicked) => {
     setOpenForm(clicked);
@@ -77,6 +80,37 @@ const App = () => {
     console.log(timetable);
   }, [timetable]);
 
+  const handleEdit = (id) => {
+    setItemToEdit(finishedItems.find((item) => item.id === id));
+    setOpenModal(true);
+    handleDelete(id);
+  };
+
+  const putEditItem = (item) => {
+    fillTimetable(
+      item.startHours,
+      item.startMinutes,
+      item.endHours,
+      item.endMinutes
+    );
+
+    setFinishedItems((prevItems) => {
+      const currentItem = item;
+      currentItem['time'] = getTime(
+        item.startHours,
+        item.startMinutes,
+        item.endHours,
+        item.endMinutes
+      );
+      currentItem['money'] = getMoney(currentItem.time);
+      currentItem['id'] =
+        item.startHours.toString() + item.startMinutes.toString();
+      return [currentItem, ...prevItems].sort((a, b) => a.id - b.id);
+    });
+
+    setOpenModal(false);
+  };
+
   const handleDelete = (id) => {
     const nextItems = finishedItems.filter((item) => item.id !== id);
     setFinishedItems(nextItems);
@@ -88,9 +122,16 @@ const App = () => {
       <FinishedForm openForm={openForm} getItem={putItem} />
       {finishedItems.length > 0 && (
         <>
-          <FinishedList finishedItems={finishedItems} onDelete={handleDelete} />
+          <FinishedList
+            finishedItems={finishedItems}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
+          />
           <FinishedTotal finishedItems={finishedItems} />
         </>
+      )}
+      {openModal && (
+        <FinishedEdit item={itemToEdit} getEditItem={putEditItem} />
       )}
     </div>
   );

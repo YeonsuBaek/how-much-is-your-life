@@ -3,13 +3,15 @@ import FinishedItems from './FinishedItems';
 import '../App.css';
 import './FinishedList.css';
 
-const FinishedList = ({ finishedItems, onDelete }) => {
+const FinishedList = ({ finishedItems, onDelete, onEdit }) => {
   return (
     <div>
       <h2 className='subTitle'>한 일 목록</h2>
       <ul className='finishedList'>
         {finishedItems.map((item) => {
-          return <FinishedItems item={item} onDelete={onDelete} />;
+          return (
+            <FinishedItems item={item} onEdit={onEdit} onDelete={onDelete} />
+          );
         })}
       </ul>
     </div>
