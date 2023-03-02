@@ -76,6 +76,22 @@ const App = () => {
     );
   };
 
+  const emptyTimetable = (startH, startM, endH, endM) => {
+    setTimetable(
+      timetable.map((hour, hIndex) =>
+        hour.map((minute, mIndex) => {
+          if (hIndex >= startH && hIndex <= endH) {
+            const firstM = hIndex === +startH ? startM : 0;
+            const lastM = hIndex === +endH ? endM : 59;
+            return mIndex * 10 >= firstM && mIndex * 10 < lastM
+              ? false
+              : minute;
+          } else return minute;
+        })
+      )
+    );
+  };
+
   useEffect(() => {
     console.log(timetable);
   }, [timetable]);
@@ -112,6 +128,14 @@ const App = () => {
   };
 
   const handleDelete = (id) => {
+    const deletedItem = finishedItems.find((item) => item.id === id);
+    emptyTimetable(
+      deletedItem.startHours,
+      deletedItem.startMinutes,
+      deletedItem.endHours,
+      deletedItem.endMinutes
+    );
+
     const nextItems = finishedItems.filter((item) => item.id !== id);
     setFinishedItems(nextItems);
   };
