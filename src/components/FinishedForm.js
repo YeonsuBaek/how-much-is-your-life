@@ -7,7 +7,7 @@ const FinishedForm = ({ openForm, getItem }) => {
   const [startHours, setStartHours] = useState('00');
   const [startMinutes, setStartMinutes] = useState('00');
   const [endHours, setEndHours] = useState(startHours);
-  const [endMinutes, setEndMinutes] = useState(startMinutes);
+  const [endMinutes, setEndMinutes] = useState(Number(startMinutes) + 10);
   const [finished, setFinished] = useState('');
 
   useEffect(() => {
@@ -45,11 +45,12 @@ const FinishedForm = ({ openForm, getItem }) => {
 
     setStartHours(endHours);
     setStartMinutes(endMinutes);
+    setFinished('');
   };
 
   useEffect(() => {
-    setEndHours(startHours);
-    setEndMinutes(startMinutes);
+    setEndHours(startMinutes === '50' ? Number(startHours) + 1 : startHours);
+    setEndMinutes(startMinutes === '50' ? '00' : Number(startMinutes) + 10);
   }, [startHours, startMinutes]);
 
   if (opened) {
