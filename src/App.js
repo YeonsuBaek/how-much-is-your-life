@@ -5,6 +5,7 @@ import FinishedTotal from './components/FinishedTotal';
 import Header from './components/Header';
 import './App.css';
 import FinishedEdit from './components/FinishedEdit';
+import TimeTable from './components/TimeTable';
 
 const App = () => {
   const [openForm, setOpenForm] = useState(false);
@@ -151,6 +152,7 @@ const App = () => {
             onEdit={handleEdit}
             onDelete={handleDelete}
           />
+          <TimeTable timetable={timetable} />
           <FinishedTotal finishedItems={finishedItems} />
         </>
       )}
