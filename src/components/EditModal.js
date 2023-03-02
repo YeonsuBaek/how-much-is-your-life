@@ -40,7 +40,7 @@ const EditModal = ({ item, getEditItem }) => {
     <form className='editModal' onSubmit={handleEditSubmit}>
       <div className='editItem'>
         <label>시작 시간</label>
-        <div className='timePicker'>
+        <div className='timePickerToEdit'>
           <input
             type='number'
             min='00'
@@ -64,7 +64,7 @@ const EditModal = ({ item, getEditItem }) => {
       </div>
       <div className='editItem'>
         <label>종료 시간</label>
-        <div className='timePicker'>
+        <div className='timePickerToEdit'>
           <input
             type='number'
             min='00'
@@ -89,7 +89,7 @@ const EditModal = ({ item, getEditItem }) => {
       <div className='editItem'>
         <label>한 일</label>
         <input
-          className='finished'
+          className='finishedToEdit'
           name='todo'
           type='text'
           value={finishedEdit}

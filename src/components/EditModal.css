@@ -20,13 +20,13 @@
   width: 72px;
 }
 
-.timePicker {
+.timePickerToEdit {
   padding: 3px 10px;
   background-color: rgba(118, 118, 128, 0.12);
   border-radius: 6px;
 }
 
-.timePicker input {
+.timePickerToEdit input {
   font-size: 22px;
   line-height: 28px;
   letter-spacing: 0.35px;
@@ -36,7 +36,7 @@
   outline: none;
 }
 
-.finished {
+.finishedToEdit {
   height: 44px;
   padding: 11px 57px 11px 0;
   border: none;
@@ -44,11 +44,11 @@
   outline: none;
 }
 
-.finished::placeholder {
+.finishedToEdit::placeholder {
   color: rgba(60, 60, 67, 0.6);
 }
 
-.finished:hover {
+.finishedToEdit:hover {
   background-color: transparent;
 }
 
