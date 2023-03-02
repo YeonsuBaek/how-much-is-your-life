@@ -3,17 +3,12 @@ import '../App.css';
 
 const FinishedTotal = ({ finishedItems }) => {
   console.log(finishedItems);
-  let totalHours = finishedItems.reduce((acc, cur) => {
-    return acc + cur.time.hours;
-  }, 0);
-  let totalMinutes = finishedItems.reduce((acc, cur) => {
-    return acc + cur.time.minutes;
+
+  let time = finishedItems.reduce((acc, cur) => {
+    return acc + cur.time.hours * 60 + cur.time.minutes;
   }, 0);
 
-  if (totalMinutes >= 60) {
-    totalHours = Number(totalHours) + Number(totalMinutes / 60);
-    totalMinutes = Number(totalMinutes) % 60;
-  }
+  const [hours, minutes] = [Math.floor(time / 60), Number(time % 60)];
 
   let totalMoney = finishedItems.reduce((acc, cur) => {
     return acc + cur.money;
@@ -23,7 +18,7 @@ const FinishedTotal = ({ finishedItems }) => {
     <div>
       <h2 className='subTitle'>최종 환산</h2>
       <span>
-        총 {totalHours}시간 {totalMinutes > 0 && `${totalMinutes}분`}
+        총 {hours > 0 && `${hours}시간`} {minutes > 0 && `${minutes}분`}
       </span>
       <strong>총 {totalMoney.toLocaleString()}원</strong>
     </div>
