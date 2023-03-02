@@ -1,0 +1,69 @@
+.editModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 16px 24px 8px 24px;
+  background-color: #fff;
+  border-radius: 16px;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+
+.editItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.editModal label {
+  width: 72px;
+}
+
+.timePicker {
+  padding: 3px 10px;
+  background-color: rgba(118, 118, 128, 0.12);
+  border-radius: 6px;
+}
+
+.timePicker input {
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: 0.35px;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.finished {
+  height: 44px;
+  padding: 11px 57px 11px 0;
+  border: none;
+  border-bottom: 1px solid #c6c6c8;
+  outline: none;
+}
+
+.finished::placeholder {
+  color: rgba(60, 60, 67, 0.6);
+}
+
+.finished:hover {
+  background-color: transparent;
+}
+
+.editedButton {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.editedButton button {
+  padding: 13px 20px;
+  font-weight: 600;
+  color: #007aff;
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}

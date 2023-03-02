@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './EditModal.css';
 
 const EditModal = ({ item, getEditItem }) => {
   const [startHoursEdit, setStartHoursEdit] = useState(item.startHours);
@@ -36,10 +37,10 @@ const EditModal = ({ item, getEditItem }) => {
   };
 
   return (
-    <form onSubmit={handleEditSubmit}>
-      <div>
+    <form className='editModal' onSubmit={handleEditSubmit}>
+      <div className='editItem'>
         <label>시작 시간</label>
-        <div>
+        <div className='timePicker'>
           <input
             type='number'
             min='00'
@@ -61,9 +62,9 @@ const EditModal = ({ item, getEditItem }) => {
           />
         </div>
       </div>
-      <div>
+      <div className='editItem'>
         <label>종료 시간</label>
-        <div>
+        <div className='timePicker'>
           <input
             type='number'
             min='00'
@@ -85,9 +86,10 @@ const EditModal = ({ item, getEditItem }) => {
           />
         </div>
       </div>
-      <div>
+      <div className='editItem'>
         <label>한 일</label>
         <input
+          className='finished'
           name='todo'
           type='text'
           value={finishedEdit}
@@ -96,7 +98,7 @@ const EditModal = ({ item, getEditItem }) => {
           required
         />
       </div>
-      <div>
+      <div className='editedButton'>
         <button type='submit'>수정</button>
       </div>
     </form>
