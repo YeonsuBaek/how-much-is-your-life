@@ -5,7 +5,7 @@ import FinishedTotal from './components/FinishedTotal';
 import Header from './components/Header';
 import './App.css';
 import FinishedEdit from './components/Modal/FinishedEdit';
-import TimeTable from './components/TimeTable';
+import TimeTable from './components/TimeTable/TimeTable';
 import Error from './components/Modal/Error';
 
 const App = () => {
