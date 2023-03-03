@@ -2,8 +2,6 @@ import React from 'react';
 import '../App.css';
 
 const FinishedTotal = ({ finishedItems }) => {
-  console.log(finishedItems);
-
   let time = finishedItems.reduce((acc, cur) => {
     return acc + cur.time.hours * 60 + cur.time.minutes;
   }, 0);

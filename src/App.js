@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import FinishedForm from './components/FinishedForm';
 import FinishedList from './components/FinishedList';
 import FinishedTotal from './components/FinishedTotal';
@@ -122,10 +122,6 @@ const App = () => {
       )
     );
   };
-
-  useEffect(() => {
-    console.log(timetable);
-  }, [timetable]);
 
   const handleEdit = (id) => {
     setItemToEdit(finishedItems.find((item) => item.id === id));
