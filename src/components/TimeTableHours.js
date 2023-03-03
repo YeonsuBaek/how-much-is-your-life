@@ -6,7 +6,7 @@ const TimeTableHours = ({ timetable }) => {
     <tbody>
       {timetable.map((time, hour) => {
         return (
-          <tr>
+          <tr key={hour}>
             <td>{hour}</td>
             <td className={time[0] && 'checkedTime'}></td>
             <td className={time[1] && 'checkedTime'}></td>

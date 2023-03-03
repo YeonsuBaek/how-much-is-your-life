@@ -13,7 +13,6 @@ const FinishedItems = ({ item, onDelete, onEdit }) => {
   return (
     <li
       className={push ? 'pushedFinishedItem finishedItem' : 'finishedItem'}
-      key={item.id}
       onClick={handlePushClick}
     >
       <div className='finishedDetailWrapper'>

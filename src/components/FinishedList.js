@@ -10,7 +10,12 @@ const FinishedList = ({ finishedItems, onDelete, onEdit }) => {
       <ul className='finishedList'>
         {finishedItems.map((item) => {
           return (
-            <FinishedItems item={item} onEdit={onEdit} onDelete={onDelete} />
+            <FinishedItems
+              key={item.id}
+              item={item}
+              onEdit={onEdit}
+              onDelete={onDelete}
+            />
           );
         })}
       </ul>
