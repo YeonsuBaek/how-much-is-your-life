@@ -134,6 +134,21 @@ const App = () => {
   };
 
   const putEditItem = (item) => {
+    const isChecked = checkOverlappingTime(
+      item.startHours,
+      item.startMinutes,
+      item.endHours,
+      item.endMinutes
+    );
+
+    if (!isChecked) {
+      setOpenErrorModal(true);
+      setTimeout(() => {
+        setOpenErrorModal(false);
+      }, 3000);
+      return;
+    }
+
     fillTimetable(
       item.startHours,
       item.startMinutes,
