@@ -63,7 +63,13 @@ const App = () => {
       item.endMinutes
     );
 
-    if (!isChecked) return setOpenErrorModal(true);
+    if (!isChecked) {
+      setOpenErrorModal(true);
+      setTimeout(() => {
+        setOpenErrorModal(false);
+      }, 3000);
+      return;
+    }
 
     fillTimetable(
       item.startHours,
