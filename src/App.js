@@ -6,6 +6,7 @@ import Header from './components/Header';
 import './App.css';
 import FinishedEdit from './components/FinishedEdit';
 import TimeTable from './components/TimeTable';
+import Error from './components/Error';
 
 const App = () => {
   const [openForm, setOpenForm] = useState(false);
@@ -15,6 +16,20 @@ const App = () => {
   );
   const [openModal, setOpenModal] = useState(false);
   const [itemToEdit, setItemToEdit] = useState();
+  const [openErrorModal, setOpenErrorModal] = useState(false);
+
+  const checkOverlappingTime = (startH, startM, endH, endM) => {
+    for (let h = +startH; h <= +endH; h++) {
+      const firstM = h === +startH ? +startM : 0;
+      const lastM = h === +endH ? +endM : 50;
+      for (let m = firstM; m <= lastM; m += 10) {
+        if (timetable[h][m / 10]) {
+          return false;
+        }
+      }
+    }
+    return true;
+  };
 
   const handleOpen = (clicked) => {
     setOpenForm(clicked);
@@ -41,6 +56,15 @@ const App = () => {
   };
 
   const putItem = (item) => {
+    const isChecked = checkOverlappingTime(
+      item.startHours,
+      item.startMinutes,
+      item.endHours,
+      item.endMinutes
+    );
+
+    if (!isChecked) return setOpenErrorModal(true);
+
     fillTimetable(
       item.startHours,
       item.startMinutes,
@@ -159,6 +183,7 @@ const App = () => {
       {openModal && (
         <FinishedEdit item={itemToEdit} getEditItem={putEditItem} />
       )}
+      {openErrorModal && <Error />}
     </div>
   );
 };
