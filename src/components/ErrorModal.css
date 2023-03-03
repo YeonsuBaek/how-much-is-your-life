@@ -1,0 +1,18 @@
+.errorModal {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  width: calc(100% - 32px);
+  padding: 20px 14px;
+  background-color: rgba(24, 24, 24, 0.8);
+  border-radius: 13px;
+  transform: translate(-50%, 0);
+}
+
+.errorMessage {
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.38px;
+  font-weight: 400;
+  color: #fff;
+}
