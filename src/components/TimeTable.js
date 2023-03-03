@@ -1,14 +1,15 @@
 import React from 'react';
 import TimeTableHours from './TimeTableHours';
+import './TimeTable.css';
 
 const TimeTable = ({ timetable }) => {
   return (
-    <div>
-      <h2>타임 테이블</h2>
+    <div className='timeTable'>
+      <h2 className='subTitle'>타임 테이블</h2>
       <table border='1'>
         <thead>
           <tr>
-            <th>Hour</th>
+            <th></th>
             <th>0</th>
             <th>10</th>
             <th>20</th>

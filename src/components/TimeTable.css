@@ -1,0 +1,26 @@
+.timeTable {
+  margin-bottom: 36px;
+}
+
+.timeTable table {
+  width: 100%;
+  color: #d1d1d6;
+}
+
+.timeTable :is(table, th, td) {
+  border: 1px solid #d1d1d6;
+  border-collapse: collapse;
+}
+
+.timeTable :is(th, td) {
+  height: 28px;
+}
+
+.timeTable th {
+  width: 14.28%;
+  font-weight: 400;
+}
+
+.timeTable td {
+  text-align: center;
+}
