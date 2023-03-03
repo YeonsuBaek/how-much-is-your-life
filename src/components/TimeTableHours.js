@@ -1,4 +1,5 @@
 import React from 'react';
+import './TimeTableHours.css';
 
 const TimeTableHours = ({ timetable }) => {
   return (
@@ -7,12 +8,12 @@ const TimeTableHours = ({ timetable }) => {
         return (
           <tr>
             <td>{hour}</td>
-            <td>{time[0] ? 'okay' : ''}</td>
-            <td>{time[1] ? 'okay' : ''}</td>
-            <td>{time[2] ? 'okay' : ''}</td>
-            <td>{time[3] ? 'okay' : ''}</td>
-            <td>{time[4] ? 'okay' : ''}</td>
-            <td>{time[5] ? 'okay' : ''}</td>
+            <td className={time[0] && 'checkedTime'}></td>
+            <td className={time[1] && 'checkedTime'}></td>
+            <td className={time[2] && 'checkedTime'}></td>
+            <td className={time[3] && 'checkedTime'}></td>
+            <td className={time[4] && 'checkedTime'}></td>
+            <td className={time[5] && 'checkedTime'}></td>
           </tr>
         );
       })}
