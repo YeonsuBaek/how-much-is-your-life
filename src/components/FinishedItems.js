@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './FinishedItems.css';
-import chevron from '../assets/icons/chevron.png';
-import pencil from '../assets/icons/pencil.png';
-import trash from '../assets/icons/trash.png';
+import chevron from '../assets/icons/chevron.svg';
+import pencil from '../assets/icons/pencil.svg';
+import trash from '../assets/icons/trash.svg';
 
 const FinishedItems = ({ item, onDelete, onEdit }) => {
   const [push, setPush] = useState(false);
