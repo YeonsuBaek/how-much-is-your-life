@@ -58,52 +58,54 @@ const FinishedForm = ({ openForm, getItem }) => {
       <div>
         <h2 className='subTitle'>한 일을 입력해주세요.</h2>
         <form onSubmit={handleFormSubmit}>
-          <div className='formItem'>
-            <label>시작 시간</label>
-            <div className='timePicker'>
-              <input
-                type='number'
-                min='00'
-                max='23'
-                step='1'
-                value={startHours}
-                onChange={handleStartHoursChange}
-                required
-              />
-              <span>:</span>
-              <input
-                type='number'
-                min='00'
-                max='50'
-                step='10'
-                value={startMinutes}
-                onChange={handleStartMinutesChange}
-                required
-              />
+          <div className='timePickerWrapper'>
+            <div className='formItem'>
+              <label>시작 시간</label>
+              <div className='timePicker'>
+                <input
+                  type='number'
+                  min='00'
+                  max='23'
+                  step='1'
+                  value={startHours}
+                  onChange={handleStartHoursChange}
+                  required
+                />
+                <span>:</span>
+                <input
+                  type='number'
+                  min='00'
+                  max='50'
+                  step='10'
+                  value={startMinutes}
+                  onChange={handleStartMinutesChange}
+                  required
+                />
+              </div>
             </div>
-          </div>
-          <div className='formItem'>
-            <label>종료 시간</label>
-            <div className='timePicker'>
-              <input
-                type='number'
-                min='00'
-                max='23'
-                step='1'
-                value={endHours}
-                onChange={handleEndHoursChange}
-                required
-              />
-              <span>:</span>
-              <input
-                type='number'
-                min='00'
-                max='50'
-                step='10'
-                value={endMinutes}
-                onChange={handleEndMinutesChange}
-                required
-              />
+            <div className='formItem'>
+              <label>종료 시간</label>
+              <div className='timePicker'>
+                <input
+                  type='number'
+                  min='00'
+                  max='23'
+                  step='1'
+                  value={endHours}
+                  onChange={handleEndHoursChange}
+                  required
+                />
+                <span>:</span>
+                <input
+                  type='number'
+                  min='00'
+                  max='50'
+                  step='10'
+                  value={endMinutes}
+                  onChange={handleEndMinutesChange}
+                  required
+                />
+              </div>
             </div>
           </div>
           <div className='formItem finished'>

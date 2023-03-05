@@ -8,6 +8,16 @@
 .formItem label {
   width: 72px;
 }
+
+.timePickerWrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.timePickerWrapper .formItem:first-child {
+  margin-right: 24px;
+}
+
 .timePicker {
   padding: 3px 10px;
   background-color: rgba(118, 118, 128, 0.12);
