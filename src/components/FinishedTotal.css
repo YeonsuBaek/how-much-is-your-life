@@ -1,0 +1,24 @@
+.finishedTotal {
+  margin-bottom: 64px;
+}
+
+.totalInformation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 24px;
+}
+
+.finishedTotal strong {
+  margin: 0 auto;
+  font-size: 48px;
+  line-height: 56px;
+  font-weight: 600;
+}
+
+.finishedTotal span {
+  margin: 0 auto;
+  font-weight: 400;
+  color: #636366;
+}

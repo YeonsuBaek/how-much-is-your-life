@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+import './FinishedTotal.css';
 
 const FinishedTotal = ({ finishedItems }) => {
   let time = finishedItems.reduce((acc, cur) => {
@@ -13,12 +14,15 @@ const FinishedTotal = ({ finishedItems }) => {
   }, 0);
 
   return (
-    <div>
+    <div className='finishedTotal'>
       <h2 className='subTitle'>최종 환산</h2>
-      <span>
-        총 {hours > 0 && `${hours}시간`} {minutes > 0 && `${minutes}분`}
-      </span>
-      <strong>총 {totalMoney.toLocaleString()}원</strong>
+
+      <div className='totalInformation'>
+        <strong>총 {totalMoney.toLocaleString()}원</strong>
+        <span>
+          ({hours > 0 && `${hours}시간`} {minutes > 0 && `${minutes}분`})
+        </span>
+      </div>
     </div>
   );
 };
