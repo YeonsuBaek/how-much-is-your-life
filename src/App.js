@@ -22,7 +22,7 @@ const App = () => {
     for (let h = +startH; h <= +endH; h++) {
       const firstM = h === +startH ? +startM : 0;
       const lastM = h === +endH ? +endM : 50;
-      for (let m = firstM; m <= lastM; m += 10) {
+      for (let m = firstM; m < lastM; m += 10) {
         if (timetable[h][m / 10]) {
           return false;
         }
