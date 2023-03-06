@@ -20,7 +20,9 @@ const FinishedTotal = ({ finishedItems }) => {
       <div className='totalInformation'>
         <strong>총 {totalMoney.toLocaleString()}원</strong>
         <span>
-          ({hours > 0 && `${hours}시간`} {minutes > 0 && `${minutes}분`})
+          ({hours > 0 && `${hours}시간`}
+          {hours > 0 && minutes > 0 && ' '}
+          {minutes > 0 && `${minutes}분`})
         </span>
       </div>
     </div>
