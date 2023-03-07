@@ -10,6 +10,13 @@ const FinishedItems = ({ item, onDelete, onEdit }) => {
     setPush(!push);
   };
 
+  const time =
+    +item.endHours * 60 +
+    +item.endMinutes -
+    (+item.startHours * 60 + +item.startMinutes);
+  const hours = Math.floor(time / 60);
+  const minutes = time % 60;
+
   return (
     <li
       className={push ? 'pushedFinishedItem finishedItem' : 'finishedItem'}
@@ -24,10 +31,17 @@ const FinishedItems = ({ item, onDelete, onEdit }) => {
           </i>
         </strong>
       </div>
-      <span>
-        {item.startHours}:{item.startMinutes} - {item.endHours}:
-        {item.endMinutes}
-      </span>
+      <div className='timeWrapper'>
+        <span>
+          {item.startHours}:{item.startMinutes} - {item.endHours}:
+          {item.endMinutes}
+        </span>
+        <span>
+          ({hours > 0 && `${hours}시간`}
+          {hours > 0 && minutes > 0 && ' '}
+          {minutes > 0 && `${minutes}분`})
+        </span>
+      </div>
       <div className='buttonWrapper'>
         <button className='editButton' onClick={() => onEdit(item.id)}>
           <img src={pencil} alt='수정' />

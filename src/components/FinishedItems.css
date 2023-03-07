@@ -9,6 +9,11 @@
   transition: transform 200ms ease-in-out;
 }
 
+.timeWrapper {
+  display: flex;
+  gap: 8px;
+}
+
 .buttonWrapper {
   position: absolute;
   top: 0;
