@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import './FinishedForm.css';
+import removeIcon from '../assets/icons/close.svg';
 
 const FinishedForm = ({ openForm, getItem }) => {
   const [opened, setOpened] = useState(false);
@@ -45,6 +46,10 @@ const FinishedForm = ({ openForm, getItem }) => {
 
     setStartHours(endHours);
     setStartMinutes(endMinutes);
+    setFinished('');
+  };
+
+  const handleRemoveClick = () => {
     setFinished('');
   };
 
@@ -118,6 +123,9 @@ const FinishedForm = ({ openForm, getItem }) => {
               placeholder='생산적으로 한 일'
               required
             />
+            <span className='removeButton' onClick={handleRemoveClick}>
+              <img src={removeIcon} alt='텍스트 삭제하기' />
+            </span>
           </div>
           <div className='saveButtonRapper'>
             <button className='saveButton' type='submit'>
