@@ -71,7 +71,7 @@ _목록을 클릭해 한 일을 삭제한다._
 
 ## Try it out
 
-how-much-is-your-life.vercel.app/
+[how-much-is-your-life.vercel.app](https://how-much-is-your-life.vercel.app/)
 
 ---
 
