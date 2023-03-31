@@ -92,3 +92,75 @@ git clone https://github.com/YeonsuBaek/how-much-is-your-life.git
 npm install
 npm start
 ```
+
+---
+
+## I learned it
+
+### 1. Portal을 활용해 Modal 만들기
+
+전에 블로그에 [Portal 사용하는 이유와 방법](https://velog.io/@yeonsubaek/React-Portal-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0%EC%99%80-%EB%B0%A9%EB%B2%95)에 대해 포스팅한 적 있다. 이론으로만 접했던 Portal을 처음으로 프로젝트에 적용해보았다.
+
+![](https://velog.velcdn.com/images/yeonsubaek/post/8925a827-d702-4e93-b7a7-da9d3380dc12/image.gif)
+
+_시간이 겹치면 경고 메세지를 보여준다._
+
+![](https://velog.velcdn.com/images/yeonsubaek/post/de823c36-37e1-4f8d-9221-a62b7353aa9d/image.gif)
+
+_수정 버튼을 누르면 수정 창이 뜬다._
+
+### 2. 배열로 타임 테이블 기능 구현하기
+
+평소 10분 단위로 플래너 정리하는 것을 좋아해서 꼭 구현해보고 싶은 기능이었다. 그러다 [프로그래머스 대실 문제](https://school.programmers.co.kr/learn/courses/30/lessons/155651)를 접하고 배열을 사용하면 되겠다고 영감을 받았다.
+
+```js
+const [timetable, setTimetable] = useState(
+  new Array(24).fill(new Array(6).fill(false))
+);
+
+const fillTimetable = (startH, startM, endH, endM) => {
+  setTimetable(
+    timetable.map((hour, hIndex) =>
+      hour.map((minute, mIndex) => {
+        if (hIndex >= startH && hIndex <= endH) {
+          const firstM = hIndex === +startH ? startM : 0;
+          const lastM = hIndex === +endH ? endM : 59;
+          return mIndex * 10 >= firstM && mIndex * 10 < lastM ? true : minute;
+        } else return minute;
+      })
+    )
+  );
+};
+```
+
+타임 테이블은 가로 6칸(60분), 세로 24칸(24시간)으로 구성되고 한 일로 저장된 시간이 해당되는 칸에 `true`로 표시한다.
+
+```js
+{
+  timetable.map((time, hour) => {
+    return (
+      <tr key={hour}>
+        <td>{hour}</td>
+        <td className={time[0] ? 'checkedTime' : ''}></td>
+        <td className={time[1] ? 'checkedTime' : ''}></td>
+        <td className={time[2] ? 'checkedTime' : ''}></td>
+        <td className={time[3] ? 'checkedTime' : ''}></td>
+        <td className={time[4] ? 'checkedTime' : ''}></td>
+        <td className={time[5] ? 'checkedTime' : ''}></td>
+      </tr>
+    );
+  });
+}
+```
+
+map으로 매시간마다 줄바꿈을 하고, `true`인 시간에 checkedTime 클래스로 색을 채운다.
+
+map을 사용해 복잡한 2차원 배열의 값을 수정하고 리스트로 정렬하는 방법을 배우게 되었다.
+
+### 3. 공통된 스타일을 컴포넌트로 분리하기
+
+UI라는 폴더를 만들어 공통된 스타일을 가진 요소들을 컴포넌트로 분리하였다. 이렇게 하면 스타일을 변경할 때 파일 하나만 수정하면 모두 적용되어 유지보수에 효과적이다.
+
+나는 이렇게 리팩터링하는 과정에서 Sass가 떠올랐다. Sass에서는 mixin을 정의해 include를 이용해 재사용하였다.
+
+여러 기능과 스타일을 넣다보니 코드가 길어져 나중에 알아보기 힘든 경우가 있다. 이번 프로젝트에서 컴포넌트를 리팩터링하고 한참 후 다시 코드를 봤을 때 더욱 읽기 쉬웠다. 앞으로도 유지보수와 내 코드를 읽을 다른 사람들을 위해 컴포넌트를 분리하는 습관을 가져야겠다.
