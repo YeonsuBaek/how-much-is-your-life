@@ -1,6 +1,6 @@
 # How much is your life?
 
-How much is your life?는 하룻동안 생산적으로 보낸 시간을 기록하여 금액으로 환산해주는 프로그램입니다. 생산적인 일을 한 만큼 미래에 보상을 받을 수 있고, 이 보상은 2023년 최저시급인 9,620원으로 계산합니다.
+How much is your life?는 하룻동안 생산적으로 보낸 시간을 기록하여 금액으로 환산해주는 애플리케이션이다. 생산적인 일을 한 만큼 미래에 보상을 받을 수 있고, 이 보상은 2023년 최저시급인 9,620원으로 계산한다.
 
 당신은 오늘 얼마짜리 삶을 살았나요?
 
@@ -8,9 +8,9 @@ How much is your life?는 하룻동안 생산적으로 보낸 시간을 기록�
 
 ## Inspiration
 
-저는 아르바이트를 하면서 'x시간만 견디면 xxxx원이 내 통장에 들어온다...' 라고 생각하며 견뎠습니다. 하지만 아르바이트 외에 다른 생산적인 일을 할 때는 즉시 댓가를 얻지 못하기 때문에 행동이 느슨해지는 경우를 많이 겪었습니다.
+저는 아르바이트를 하면서 'x시간만 견디면 xxxx원이 내 통장에 들어온다...' 라고 생각하며 견딘 적 있다. 하지만 아르바이트 외에 다른 생산적인 일을 할 때는 즉시 댓가를 얻지 못하기 때문에 행동이 느슨해지는 경우를 많이 겪었다.
 
-문득, 하룻동안 생산적으로 살아온 시간을 돈으로 계산하면 얼마일까? 내가 지금 시간을 많이 투자한 만큼 미래에 나에 대한 경제적인 가치가 올라가지 않을까? 떠올리게 되었습니다.
+문득, 하룻동안 생산적으로 살아온 시간을 돈으로 계산하면 얼마일까? 내가 지금 시간을 많이 투자한 만큼 미래에 나에 대한 경제적인 가치가 올라가지 않을까? 떠올리게 되었다.
 
 ---
 
@@ -51,13 +51,27 @@ How much is your life?는 하룻동안 생산적으로 보낸 시간을 기록�
 
 ## Demo
 
-Not yet
+![](https://velog.velcdn.com/images/yeonsubaek/post/e9bfc0cb-920e-42a8-882d-14aefe474e45/image.gif)
+
+_앱을 시작하고 한 일을 입력한다._
+
+![](https://velog.velcdn.com/images/yeonsubaek/post/94eadd9a-8a30-40b5-bca4-69c6898215eb/image.gif)
+
+_저장된 한 일은 목록과 타임 테이블, 최종 환산에 적용된다._
+
+![](https://velog.velcdn.com/images/yeonsubaek/post/320415eb-62eb-4671-94b4-aca9d86c1e4c/image.gif)
+
+_목록을 클릭해 한 일의 정보를 수정한다._
+
+![](https://velog.velcdn.com/images/yeonsubaek/post/2e3ca971-f79b-4003-bf6e-7fe5f393c041/image.gif)
+
+_목록을 클릭해 한 일을 삭제한다._
 
 ---
 
 ## Try it out
 
-Not yet
+how-much-is-your-life.vercel.app/
 
 ---
 
