@@ -123,9 +123,11 @@ const FinishedForm = ({ openForm, getItem }) => {
               placeholder='생산적으로 한 일'
               required
             />
-            <span className='removeButton' onClick={handleRemoveClick}>
-              <img src={removeIcon} alt='텍스트 삭제하기' />
-            </span>
+            {finished && (
+              <span className='removeButton' onClick={handleRemoveClick}>
+                <img src={removeIcon} alt='텍스트 삭제하기' />
+              </span>
+            )}
           </div>
           <div className='saveButtonRapper'>
             <button className='saveButton' type='submit'>
