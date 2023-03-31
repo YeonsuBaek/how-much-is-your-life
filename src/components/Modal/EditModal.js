@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import GhostButton from '../UI/GhostButton';
 import './EditModal.css';
 
 const EditModal = ({ item, getEditItem }) => {
@@ -98,9 +99,7 @@ const EditModal = ({ item, getEditItem }) => {
           required
         />
       </div>
-      <div className='editedButton'>
-        <button type='submit'>수정</button>
-      </div>
+      <GhostButton text='수정' />
     </form>
   );
 };

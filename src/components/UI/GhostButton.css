@@ -1,0 +1,19 @@
+.GhostButton {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.GhostButton button {
+  padding: 13px 20px;
+  font-weight: 600;
+  color: #007aff;
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+
+.GhostButton button:is(:hover, :active) {
+  color: #0a84ff;
+}

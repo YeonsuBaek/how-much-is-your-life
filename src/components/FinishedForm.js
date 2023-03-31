@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 import './FinishedForm.css';
 import removeIcon from '../assets/icons/close.svg';
+import GhostButton from './UI/GhostButton';
 
 const FinishedForm = ({ openForm, getItem }) => {
   const [opened, setOpened] = useState(false);
@@ -129,11 +130,7 @@ const FinishedForm = ({ openForm, getItem }) => {
               </span>
             )}
           </div>
-          <div className='saveButtonRapper'>
-            <button className='saveButton' type='submit'>
-              저장
-            </button>
-          </div>
+          <GhostButton text='저장' />
         </form>
       </div>
     );
