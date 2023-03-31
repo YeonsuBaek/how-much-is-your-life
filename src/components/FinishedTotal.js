@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 import './FinishedTotal.css';
+import SubTitle from './UI/SubTitle';
 
 const FinishedTotal = ({ finishedItems }) => {
   let time = finishedItems.reduce((acc, cur) => {
@@ -15,8 +16,7 @@ const FinishedTotal = ({ finishedItems }) => {
 
   return (
     <div className='finishedTotal'>
-      <h2 className='subTitle'>최종 환산</h2>
-
+      <SubTitle title='최종 환산' />
       <div className='totalInformation'>
         <strong>총 {totalMoney.toLocaleString()}원</strong>
         <span>

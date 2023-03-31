@@ -1,0 +1,9 @@
+.subTitle {
+  margin-bottom: 16px;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: 0.35px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}

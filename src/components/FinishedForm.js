@@ -3,6 +3,7 @@ import '../App.css';
 import './FinishedForm.css';
 import removeIcon from '../assets/icons/close.svg';
 import GhostButton from './UI/GhostButton';
+import SubTitle from './UI/SubTitle';
 
 const FinishedForm = ({ openForm, getItem }) => {
   const [opened, setOpened] = useState(false);
@@ -62,7 +63,7 @@ const FinishedForm = ({ openForm, getItem }) => {
   if (opened) {
     return (
       <div>
-        <h2 className='subTitle'>한 일을 입력해주세요.</h2>
+        <SubTitle title='한 일을 입력해주세요.' />
         <form onSubmit={handleFormSubmit}>
           <div className='timePickerWrapper'>
             <div className='formItem'>

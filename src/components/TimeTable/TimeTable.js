@@ -1,11 +1,12 @@
 import React from 'react';
 import TimeTableHours from './TimeTableHours';
 import './TimeTable.css';
+import SubTitle from '../UI/SubTitle';
 
 const TimeTable = ({ timetable }) => {
   return (
     <div className='timeTable'>
-      <h2 className='subTitle'>타임 테이블</h2>
+      <SubTitle title='타임 테이블' />
       <table border='1'>
         <thead>
           <tr>

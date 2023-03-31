@@ -2,11 +2,12 @@ import React from 'react';
 import FinishedItems from './FinishedItems';
 import '../App.css';
 import './FinishedList.css';
+import SubTitle from './UI/SubTitle';
 
 const FinishedList = ({ finishedItems, onDelete, onEdit }) => {
   return (
     <div>
-      <h2 className='subTitle'>한 일 목록</h2>
+      <SubTitle title='한 일 목록' />
       <ul className='finishedList'>
         {finishedItems.map((item) => {
           return (
